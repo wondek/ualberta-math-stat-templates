@@ -1,0 +1,21 @@
+Business card example created by Malcolm Roberts, 2011.
+
+This uses asymptote (asymptote.sf.net) to create a PDF that should
+match most commonly available pre-perforated business card paper
+things that you can buy at office supply stores.
+
+This has been tested on an HP Lasterjet 2200D using Geographics
+Business Cards, but may have to be adjusted for other printers and
+other pre-perforated business card paper. Adjust the values of bx0 and
+by0 in bcard.asy to change the size of the cards, and change the
+values of xoff0 and yoff0 to change the page margins.
+
+To create the pdf file, first creat the logo file by typing
+   asy logo
+in the command-line (or whatever one does in Windows) and then
+create the pdf by typing
+   asy -f pdf bcard
+
+in the command-line. Once you're happy with how cards fit the paper,
+comment out the line that says "draw(b);" by making it read
+"//draw(b);".  Then, print!
