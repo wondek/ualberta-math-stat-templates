@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+
+\usepackage{multido}[2004/05/15]
+\begin{document}
+\pagenumbering{arabic}
+\pagestyle{empty}
+
+\begin{center}
+{\Large  Final Exam Signature Page}
+\end{center}
+%\vspace{0.5cm}
+
+
+{ \Large \hspace{1cm} Name \hspace{4cm} Signature \hspace{2cm} ID \hspace{1cm} }
+\vspace{0.2cm}
+\multido{\i=1+1}{9}{
+  \vspace{0.2cm}
+  \large{\i}\phantom{0} .{}{} 
+  \makebox[5cm]{\hrulefill}\hspace{1cm}
+  \makebox[4cm]{\hrulefill} \hspace{1cm}
+  \makebox[3cm]{\hrulefill}
+}
+%
+\multido{\i=10+1}{16}{
+  \vspace{0.2cm}
+  \large{\i}  {}.
+  \makebox[5cm]{\hrulefill}\hspace{1cm}
+  \makebox[4cm]{\hrulefill} \hspace{1cm}
+  \makebox[3cm]{\hrulefill}
+}
+%
+%\newpage
+%{ \Large Name \hspace{4cm} Signature \hspace{4cm} ID  }
+%\multido{\i=32+1}{37}{
+%\i  {}.\makebox[5cm]{\hrulefill}\hspace{1cm}\makebox[4cm]{\hrulefill} \hspace{1cm}\makebox[3cm]{\hrulefill}
+%}
+
+%
+%\multido{\i=100+1}{21}{
+%\i  .\makebox[5cm]{\hrulefill}\hspace{1cm}\makebox[4cm]{\hrulefill} \hspace{1cm}\makebox[3cm]{\hrulefill}
+%}
+
+
+
+ 
+
+\end{document}
