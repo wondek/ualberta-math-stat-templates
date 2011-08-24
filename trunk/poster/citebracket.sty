@@ -1,0 +1,38 @@
+%
+% bracketed citations
+%
+% Must use with \bibliographystyle{rmp}
+%
+\newif\ifcitename
+
+\def\bibkey#1{\expandafter\splitlist\bibtext\relax
+\expandafter\bibsplit#1\nexttext\relax
+\ifcitename\ifx\citefirst\empty\first\ [\second\else
+\ifx\citefirst\first\@citepunct\second\else] and \first\ [\second\fi\fi%]
+\else\ifx\citefirst\empty\first\ \second\else\@citepunct
+\ifx\citefirst\first\second\else\first\ \second\fi\fi
+\fi
+\let\citefirst\first}
+
+\def\bibsplit#1\ #2\relax{\def\first{#1}\def\second{#2}}
+\def\splitlist#1,#2\relax{\def\nexttext{#1}\def\bibtext{#2}%
+\ifx\nexttext\empty\else\def\nexttext{, #1}\fi%
+\ifx\bibtext\empty\def\bibtext{,}\fi}
+
+\def\cite{\citenamefalse\def\bibtext{[}%
+\@ifnextchar [{\@tempswatrue\@citey}{\@tempswafalse\@citey[]}}
+\def\citename{\citenametrue\def\bibtext{}%
+\@ifnextchar [{\@tempswatrue\@citey}{\@tempswafalse\@citey[]}}
+\def\@citey[#1]#2{\bibtext\def\bibtext{#1,}\def\citefirst{}\@citex{#2}]}
+
+\def\@cite#1#2{#1\def\argtwo{#2}\ifx\argtwo\empty\else,\argtwo\fi}
+\let\citea\@cite
+\def\@citepunct{,\penalty\@m\ }
+\def\citenum#1{{\def\@cite##1{##1}\cite{#1}}}
+
+\def\@citex#1{\if@filesw\immediate\write\@auxout{\string\citation{#1}}\fi
+  \def\@citea{}\@cite{\@for\@citeb:=#1\do
+    {\@citea\def\@citea{}\@ifundefined
+       {b@\@citeb}{{\bf\@citeb?}\@warning
+       {Citation `\@citeb' on page \thepage \space undefined}}%
+{\expandafter\bibkey\csname b@\@citeb\endcsname}}}{}}
