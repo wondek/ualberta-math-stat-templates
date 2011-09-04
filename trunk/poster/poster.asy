@@ -3,71 +3,106 @@ import flowchart;
 import graph;
 //usepackage("mathdef,citebracket");
 usepackage("mathdef");
+usepackage("multirow");
 settings.twice=true;
 
 
 
 //////  Content  //////
 
+
+
 // Title tex
-string titletex="Title";
-string titletex2=
-  "A Scientific Poster in Asymptote";
-string authortex="Author 1, Institution 1; Author 2, Institution 2";
+string titletex="Tile of Poster";
+string titletex2="Author, University";
+string authortex="Maybe a web site or something here.";
+
+int nrowcol1=4;
 
 // Column one: sizes and text.
-real[] col1frac;
-string[] tex0=new string[3];//TODO: make [3] a variable.
+real[] col1frac = new real[nrowcol1];
+for(int i=0; i < nrowcol1; ++i) {
+  col1frac[i]=1.0/(real) nrowcol1;
+}
+string[] tex0=new string[nrowcol1];
 
 // Column 1 row 1 size
-col1frac[0]=0.25; 
+col1frac[0]=0.23; 
 // Column 1 row 1 tex
 tex0[0]="
-{\bf Setting the Stage}
+\begin{center}
+{\bf First Column First Box}
+\end{center}
 
-Box 1
+And some stuff.
 ";
 
 // Column 1 row 2 size
-col1frac[1]=0.15; // change this to get a different height for box 2.
+col1frac[1]=0.28;
+
 // Column 1 row 2 tex
 tex0[1]="
-{\bf Questions}
+\begin{center}
+{\bf First Column Second Box}
+\end{center}
 
-Box 2
+And some more stuff.
 ";
 
-// this height is automatically determined from what's left over.
-// Column 2 row 1 tex
-tex0[2]=
-"
-{\bf Header}
+col1frac[2]=0.27;
+// Column 1 row 3 tex
+tex0[2]="
+\begin{center}
+{\bf First Column Third Box}
+\end{center}
 
-Box 3
+Boy, more stuff?
 ";
 
+// Column 1 row 4 tex
+tex0[3]="
+\begin{center}
+{\bf First Column Fourth Box}
+\end{center}
+
+You don't have to have this many boxes in the first column if you don't want.
+";
 
 //bottom-left text
 string texbl=
 "
-{\bf Header}
+\begin{center}
+{\bf Lower-Left Box}
+\end{center}
 
-Box 5
+Drive that point home.
+
 ";
 
 //bottom-right text
 string texbr=
 "
-{\bf Header}
+\begin{center}
+{\bf Conclusion}
+\end{center}
 
-Box 6
-";
+Reference are added manually.
+										";
 
 // Column 1 row 3 tex
 string tex21="
-{\bf Header}
+\begin{center}
+{\bf My Goodness What A Very Large Box You Have}
+\end{center}
 
-The big box
+One could put quite a lot of stuff in this box, couldn't one.
+
+% 
+%\begin{center}
+%\includegraphics[width=70cm]{nameoffigure}
+%\end{center}
+
+
 ";
 
 
@@ -77,17 +112,18 @@ The big box
 real A0h=841mm,A0w=1189mm;
 size(A0w,A0h);
 
+
 defaultpen(deepblue+fontsize(24));
 
-real boxopac=0.95; // opacity for background image
+real boxopac=0.8; // opacity for background image
 
 // title settings
-real titlew=600mm, titleh=90mm;
+real titlew=900mm, titleh=90mm;
 real tspace=20mm, toffset=-5mm;
 real tspace2=20mm;
 pen titlebpen=invisible;//paleblue+opacity(boxopac);
 pen titlepen=black+fontsize(110), authorpen=black+fontsize(50);
-pen titlepen2=black+fontsize(45);
+pen titlepen2=black+fontsize(50);
 real tmarg=15mm;
 
 // column settings
@@ -96,10 +132,9 @@ real marg=10mm, boxspace=5mm, boxmarg=marg+boxspace;
 real colw= (A0w-(ncols-1)*(2*boxmarg) - 4*(ncols-1)*marg)/ncols;
 real colh=650mm;
 pen colpen=black+fontsize(36);
-pen boxpen=rgb("E8D6E5")+opacity(boxopac);
+pen boxpen=rgb("FFDB05")+opacity(boxopac); // yellow
 pen boxborder=invisible;
-pen roundpen=paleblue+linewidth(10);
-
+pen roundpen=rgb("007C41")+linewidth(10); // green
 
 //////  Formatting  //////
 
@@ -133,27 +168,41 @@ void drawbox(string tex, picture pic, real w, real h){
   draw(pic,picbox,boxborder);
 }
 
+void addsubpic(picture pic, picture pica, picture picb) {
+  add(pic,pica.fit(),(0,boxspace),N,FillDraw(0,0,invisible));
+  add(pic,picb.fit(),(0,-boxspace),S,FillDraw(0,0,invisible));
+}
+
 // Functions for fitting boxes together
 void fitvert(picture picout, picture[] picin) {
-  if(picin.length==1)
+  if(picin.length==1) {
     picout=picin[0];
-  if(picin.length==2){
-    add(picout,picin[0].fit(),(0,boxspace),N,FillDraw(0,0,invisible));
-    add(picout,picin[1].fit(),(0,-boxspace),S,FillDraw(0,0,invisible));
+    return;
   }
+  if(picin.length==2) {
+    addsubpic(picout,picin[0],picin[1]);
+    return;
+  }
+
+// make temporary pictures for fitting and adding
+  picture[] pictemp=new picture[picin.length-2];
+  for(int i=0; i < pictemp.length; ++i) {
+    pictemp[i]=new picture;
+  }
+
   if(picin.length==3) {
-    picture pica;
-    add(pica,picin[0].fit(),(0,boxspace),N,FillDraw(0,0,invisible));
-    add(pica,picin[1].fit(),(0,-boxspace),S,FillDraw(0,0,invisible));
-    add(picout,pica.fit(),(0,boxspace),N,FillDraw(0,0,invisible));
-    add(picout,picin[2].fit(),(0,-boxspace),S,FillDraw(0,0,invisible));
+    addsubpic(pictemp[0],picin[0],picin[1]);
+    addsubpic(picout,pictemp[0],picin[2]);
+    return;
   }
-  //FIXME: figure out the other cases
+
+  addsubpic(pictemp[0],picin[0],picin[1]);
+  for(int i=1; i < pictemp.length; ++i) {
+    addsubpic(pictemp[i],pictemp[i-1],picin[i+1]);
+  }
+  addsubpic(picout,pictemp[1],picin[picin.length-1]);
 }
 
-void fithorizont(picture picout, picture[] picin) {
-
-}
 
 // Using the functions to draw the parts of the poster
 
@@ -170,7 +219,7 @@ picture pict;
   // logos
   real offset=400mm;
 //  label(pict,graphic("uofa.eps","height=6cm"),(-offset,0));
-//  label(pict,graphic("uofa.eps","height=6cm"),(offset,0)); 
+//  label(pict,graphic("uofa.eps","height=6cm"),(offset,0));
   clip(pict,picbox);
   fill(pict,roundbox,boxpen);
   draw(pict,roundbox,roundpen);
@@ -186,10 +235,10 @@ int[] nboxes;
 // Column 1
 picture pic1;
 
-nboxes[0]=3;
+nboxes[0]=nrowcol1;
 picture[] pic0=new picture[nboxes[0]];
 
-col1frac[nboxes[0]-1]=1-sum(col1frac);
+col1frac[nboxes[0]-1]=1-sum(col1frac[0:nrowcol1-1])+0.04; // FIXME: kludge
 real b1diff=(nboxes[0]-1)*marg;
 
 for(int i=0; i < pic0.length; ++i) {
@@ -226,7 +275,6 @@ drawbox(texbr,picbr,colw,colh*bottomfrac-boxspace);
    
   
 }
-
 
 path boundary=
   (-A0w/2,-A0h/2)--(A0w/2,-A0h/2)--(A0w/2,A0h/2)--(-A0w/2,A0h/2)--cycle;
