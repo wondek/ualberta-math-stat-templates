@@ -1,6 +1,6 @@
 #Instructions for using the poster template.
 
-= Introduction =
+= Instructions for using the poster template =
 
 The poster template uses Asymptote, which uses a TeX/LaTeX back-end.  
 
