@@ -162,7 +162,7 @@ void setpic(picture pic, real w, real h) {
 void drawbox(string tex, picture pic, real w, real h){
   setpic(pic,w,h);
   label(pic,minipage(tex,w),(0,0),colpen);
-  clip(pic,picbox);
+  //clip(pic,picbox);
   fill(pic,roundbox,boxpen);
   draw(pic,roundbox,roundpen);
   draw(pic,picbox,boxborder);
