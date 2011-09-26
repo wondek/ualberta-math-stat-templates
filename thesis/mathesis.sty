@@ -26,6 +26,7 @@
 \newif\iftablespage              \tablespagetrue
 \newif\ifsymbolspage             \symbolspagetrue
 \newif\iffieldofstudy            \fieldofstudyfalse
+\newif\ifdepartment              \departmenttrue
 \newif\iftwo@supervisors         \two@supervisorsfalse
 \newif\ifthird@committeemember   \third@committeememberfalse
 \newif\iffourth@committeemember  \fourth@committeememberfalse
@@ -56,11 +57,11 @@
     \@ldthebibliography{#1}
 }
 
-% Define \listfigures to list figures
-\newcommand\listfigures{\figurespagetrue}
-
 % Define \listtables to list tables
 \newcommand\listtables{\tablespagetrue}
+
+% Define \listfigures to list figures
+\newcommand\listfigures{\figurespagetrue}
 
 % Define \listsymbols to list symbols
 \newcommand\listsymbolname{List of Symbols}
@@ -70,6 +71,7 @@
 % front matter defining macros
 \def\gradyear#1{\gdef\@gradyear{#1}}
 \def\fieldofstudy#1{\gdef\@fieldofstudy{#1}\fieldofstudytrue}
+\def\department#1{\gdef\@department{#1}\departmenttrue}
 \def\copyrightyear#1{\gdef\@copyrightyear{#1}} % \author, \title in report
 \def\degree#1{\gdef\@degree{#1}}
 \def\convocationdate#1{\gdef\@convocationdate{#1}}
@@ -78,6 +80,7 @@
 \def\@author{}
 \def\@gradyear{}
 \def\@fieldofstudy{}
+\def\@department{}
 
 \def\supervisor#1{\gdef\@supervisor{#1}}
 \def\cosupervisor#1{\gdef\@cosupervisor{#1}\two@supervisorstrue}
@@ -109,11 +112,11 @@
     \centerline{\bf University of Alberta}
     \vskip1cm
     \begin{center}{\large\bf\MakeUppercase\@title}\end{center}
-    \vskip5mm
+    \vskip3mm
     \centerline{by}
     \vskip3mm
     \centerline{\large\@author}
-    \vskip2.4cm
+    \vskip1.4cm
     \centerline{A thesis submitted to the Faculty of
     Graduate Studies and Research}
     \centerline{in partial fulfillment of the requirements for the degree of}
@@ -125,17 +128,18 @@
       \vskip3mm
       \centerline{\textbf{\large \@fieldofstudy}}
     \fi
-    \vskip1cm
-    \centerline{Department of Mathematical and Statistical Sciences}
-    \vskip1cm
-
+    \ifdepartment
+      \vskip1cm
+      \centerline{\large \@department}
+      \vskip1cm
+    \fi
     \centerline{\copyright\ \@author}
     \centerline{\@convocationdate}
     \centerline{Edmonton, Alberta}
 
-    \newpage
-    \vskip1in
-    \begin{center}\footnotesize
+%    \newpage
+    \vskip1cm
+    \begin{center}\tiny
       Permission is hereby granted to the University of Alberta
       Libraries to reproduce single copies of this thesis and to lend
       or sell such copies for private, scholarly, or scientific
