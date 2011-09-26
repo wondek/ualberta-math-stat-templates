@@ -1,0 +1,28 @@
+This subversion repository contains a basic thesis template for math/stats
+graduate students at the University of Alberta.  Efforts have been made
+to ensure that this complies with current FGSR guidelines, but we can't 
+guarantee that we match them exactly; it is your responsibility to ensure
+that this be the case.
+
+This repository is maintained by the math/stat graduate student association.
+
+Instructions:
+
+This template expects pdflatex (as opposed to latex).  The basic commands are:
+
+Copy all the files to your own directory.  (Don't turn the thesis
+template subversion repository into your thesis!)  You might want to
+rename thesistemplate.tex <your name>_thesis.tex or thesis.tex or
+something like that.
+
+Once you have done that, you can compile the document by running the
+following command:
+
+  latexmk thesis
+
+which produces a dvi, or
+
+  latexmk -pdf thesis
+
+to produce a pdf.  This can also be done using various TeX editors.
+

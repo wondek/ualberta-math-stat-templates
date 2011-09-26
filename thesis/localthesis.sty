@@ -1,0 +1,289 @@
+%%% Classification: LaTex style file
+%%%		  Filename: localhesis.sty
+%%%			Author: GAME, Hongtao Yang 
+%%%		 Copyright: No copyright. Thanks to Hongtao Yang for the
+%%%					original version of this, and to GAME for updates and
+%%%					mainetenance the author is welcome.
+%%%		  Abstract: This style file is written according to the 
+%%%					requirements of	thesis formating at the 
+%%%					University of Alberta .
+%%%			  Note: This template is set up for in-line
+%%%					asymptote as well.
+
+% Packages
+
+\usepackage[pdftex]{graphicx}
+\usepackage[inline]{asymptote}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{epsfig}
+\usepackage{verbatim}
+\usepackage{bm}
+\usepackage{amsfonts}
+\usepackage{makeidx}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{setspace}
+\usepackage{cancel}
+\usepackage{cite}
+\usepackage{url}
+
+% Latin Abbreviations
+
+\def\vs{{\it vs. }}
+\def\cf{{\it cf. }}
+\def\viz{{\it viz. }}
+\def\ie{{\it i.e. }}
+\def\etc{{\it etc. }}
+\def\eg{{\it e.g. }}
+\def\etal{{\it et al .}}
+\def\via{{\it via }}
+\def\adhoc{{\it ad hoc }}
+\def\apriori{{\it apriori }}
+
+% Miscelaneous Changes
+
+% Don't bother to report over-full boxes if over-edge is < 2pt
+
+\hfuzz2pt 
+
+\restylefloat{figure}
+\restylefloat{table}
+
+% Equation Numbering
+
+\numberwithin{equation}{section}
+
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+
+% New if constructs:		 Default conditions:
+\newif\iffigurespage			 	\figurespagetrue
+\newif\iftablespage			 		\tablespagetrue
+\newif\ifsymbolspage		 		\symbolspagetrue
+\newif\iffieldofstudy			 	\fieldofstudyfalse
+
+% Define \BeginTopMatter to number pages in \roman before Chapter 1 and
+% \EndTopMatter to number pages in Arabia from Chapter 1
+
+\def\beforebodyoftex{
+    \newpage
+    \setcounter{page}{1}
+    \renewcommand{\thepage}{}
+    \pagestyle{plain}
+    \thispagestyle{empty}
+}
+
+\def\beginbodyoftex{
+    \newpage
+    \setcounter{page}{1}
+    \renewcommand{\thepage}{\arabic{page}}
+}
+
+\renewcommand\contentsname{Table of Contents}
+
+% Define \listfigures to list figures
+\newcommand\listfigures{\figurespagetrue}
+
+% Define \listtables to list tables
+\newcommand\listtables{\tablespagetrue}
+
+% Define \listsymbols to list symbols
+\newcommand\listsymbolname{List of Symbols}
+\newcommand\listsymbols{\symbolspagetrue}
+
+% \author, \title are defined in report; here are the rest of the
+% front matter defining macros
+\def\gradyear#1{\gdef\@gradyear{#1}}
+\def\fieldofstudy#1{\gdef\@fieldofstudy{#1}\fieldofstudytrue}
+\def\copyrightyear#1{\gdef\@copyrightyear{#1}} % \author, \title in report
+\def\degree#1{\gdef\@degree{#1}}
+\def\convocationdate#1{\gdef\@convocationdate{#1}}
+\def\@title{}
+\def\@convocationdate{}
+\def\@author{}
+\def\@gradyear{}
+\def\@fieldofstudy{}
+
+% title page
+\def\titlepage{
+    \newpage
+    \thispagestyle{empty}
+	\singlespacing 
+    \centerline{\bf University of Alberta}
+    \vskip8mm
+    \begin{center}{\large\bf\MakeUppercase\@title}\end{center}
+    \vskip4mm
+    \centerline{by}
+    \vskip6mm
+    \centerline{\large\@author}
+    \vskip2cm
+    \centerline{\small A thesis submitted to the Faculty of
+    Graduate Studies and Research}
+    \centerline{\small in partial fulfillment of the requirements for the 
+		degree of}
+    \vskip6mm
+    \centerline{\@degree}
+    \vskip6mm
+    \iffieldofstudy
+      \centerline{in}
+      \vskip3mm
+      \centerline{\@fieldofstudy}
+    \fi
+    \vskip2cm
+    \centerline{Department of Mathematical and Statistical Sciences}
+    \vskip2cm
+    \centerline{\copyright\@author}
+    \centerline{\@convocationdate}
+    \centerline{Edmonton, Alberta}
+	\vskip2cm
+	\centering\scriptsize
+		Permission is hereby granted to the
+		University of Alberta Libraries to reproduce single
+		copies of this thesis adn to lend or sell such copie for
+		private, scholraly or scientific research purposes only.
+		Where the thesis is converted to, or otherwise made
+		available in digital form, the University of Alberta
+		will advise potential users of the thesis of these terms.
+
+		The author reserves all other publication
+		and other rights in association with the copyright in
+		the thesis and, except as herin before provided, neither 
+		the thesis nor any substantial portion thereof may be 
+		printed or otherwise reproduced in any material form 
+		whatsoever without the author's prior written
+		permission.
+}
+
+\newenvironment{dedication}{
+      \newpage
+      \thispagestyle{empty}
+}{}
+
+\renewenvironment{abstract}{
+    \newpage
+    \thispagestyle{empty}
+    \centerline{\large\bf Abstract}
+    \vskip0.5in
+}{}
+
+\newenvironment{acknowledgement}{
+      \newpage
+      \thispagestyle{empty}
+      \centerline{\large\bf Acknowledgements}
+      \vskip0.5in
+}{}
+
+\newenvironment{preface}{
+      \newpage
+      \thispagestyle{empty}
+      \centerline{\large\bf Preface}
+      \vskip0.5in
+}{}
+
+% put all pages for prefatory together
+\def\prefatorypages{
+    \titlepage
+    \dedicationpage
+    \abstract
+    \preface
+    \acknowledgement
+    \beforebodyoftex
+    \tableofcontents
+    \iffigurespage
+      \listoffigures
+      \addcontentsline{toc}{chapter}{List of Figures}
+    \fi
+    \iftablespage
+      \listoftables
+      \addcontentsline{toc}{chapter}{List of Tables}
+    \fi
+    \beginbodyoftex
+}
+
+\def\listofsymbols{
+      \if@twocolumn
+         \@restonecoltrue\onecolumn
+      \else
+         \@restonecolfalse
+      \fi
+      \chapter*{\listsymbolname
+         \@mkboth{\MakeUppercase\listsymbolname}
+              {\MakeUppercase\listsymbolnam}
+      }
+      \@starttoc{lof}
+      \if@restonecol\twocolumn\fi
+}
+
+% for thebibilography: books or papers written by the same author(s)
+\def\sameauthor{\leavevmode\vrule height 2pt depth -1.6pt width 23pt}
+
+\def\nolistoffigures{\figurespagefalse}
+\def\nolistoftables{\tablespagefalse}
+\def\nolistofsymbols{\symbolspagefalse}
+
+% Page Layout and Paragraphs
+
+\setlength{\parskip}{5pt}
+\setlength{\parindent}{0pt}
+\textheight 8.5in
+\textwidth 5.5in 
+\topmargin -0.5in
+\oddsidemargin 0.5in
+\evensidemargin 0.5in
+\renewcommand{\baselinestretch}{1.37}
+\frenchspacing
+
+% Theorem Styles
+
+\def\th@plain{%
+  \thm@headpunct{\rm :}
+  \itshape % body font
+  % \hangindent=12pt
+}
+
+\def\th@definition{%
+  \thm@headpunct{\rm :}
+  \normalfont % body font
+  % \hangindent=12pt
+  % \parskip=5pt
+}
+
+\def\th@example{%
+  \thm@headpunct{}
+  \normalfont % body font
+  \hangindent=12pt
+}
+
+\def\th@remark{%
+  \thm@headfont{\itshape}%
+  \thm@headpunct{\rm :}
+  \normalfont % body font
+  \thm@preskip\topsep \divide\thm@preskip\tw@
+  \thm@postskip\thm@preskip
+  \hangindent=12pt
+}
+
+% Theorems and Definitions
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{ques}[thm]{Question}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{stat}[thm]{Statement}
+
+% Chapter and Section Headings
+
+\def\thechapter       {\arabic{chapter}}
+\def\thesection       {\arabic{chapter}.\arabic{section}}
+\def\thefigure        {\arabic{chapter}.\arabic{figure}}
+\def\theequation      {\arabic{chapter}.\arabic{equation}}
+

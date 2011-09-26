@@ -1,0 +1,15 @@
+%
+% draftmode.sty
+%
+% A LaTeX style option to print out equation label names
+% Written by John C. Bowman (bowman@math.ualberta.ca)
+% Don't use underscores in equation labels with this package.
+%
+% Usage: \documentstyle[draftmode]{article}
+%
+\let\labelo\label
+\def\labelname{}
+\def\label#1{\gdef\labelname{#1}\labelo{#1}}
+\def\@eqnnum{{\reset@font\rmfamily (\theequation)\rlap{\tiny\ \labelname}
+\gdef\labelname{}}}
+

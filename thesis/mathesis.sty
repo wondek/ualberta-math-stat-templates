@@ -1,0 +1,238 @@
+%%% Classification: LaTex style file
+%%% Filename: mathesis.sty
+%%% Version: Final
+%%% Author: Hongtao Yang
+%%% Date: September, 2000
+%%% Copyright: No copyright. But a thanks to the author is welcome.
+%%% Abstract: This style file is written according to the requirement of
+%%%           thesis format of the University of Alberta
+%%%
+%%% Cut down and updated by Matthew Emmett in 2010
+%%%
+\typeout{A thesis style file for Department of Math & Stat Sciences,}
+\typeout{University of Alberta written by Hongtao Yang}
+
+\hfuzz4pt % don't bother to report over-full boxes if over-edge is < 4pt
+
+% number equations within chapter. if equations want to be numbered within
+% section,then you should use:
+%			\renewcommand{\theequation}{\thesection.\arabic{equation}}
+% and should set equation counter to be 0 at the beginning of each section by
+%			\setcounter{equation}{0}
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+
+% new if constructs:		 default conditions:
+\newif\iffigurespage             \figurespagetrue
+\newif\iftablespage              \tablespagetrue
+\newif\ifsymbolspage             \symbolspagetrue
+\newif\iffieldofstudy            \fieldofstudyfalse
+\newif\iftwo@supervisors         \two@supervisorsfalse
+\newif\ifthird@committeemember   \third@committeememberfalse
+\newif\iffourth@committeemember  \fourth@committeememberfalse
+\newif\iffifth@committeemember   \fifth@committeememberfalse
+
+\def\beforebodyoftex{
+    \newpage
+    \setcounter{page}{1}
+    \renewcommand{\thepage}{}
+    \pagestyle{plain}
+    \thispagestyle{empty}
+}
+
+\def\beginbodyoftex{
+    \newpage
+    \setcounter{page}{1}
+    \renewcommand{\thepage}{\arabic{page}}
+}
+
+\renewcommand\contentsname{Table of Contents}
+
+% Redefine \thebibliography to go to a new page and put an entry in the
+% table of contents
+\let\@ldthebibliography\thebibliography
+\renewcommand{\thebibliography}[1]{%
+    \newpage
+    \addcontentsline{toc}{chapter}{Bibliography}
+    \@ldthebibliography{#1}
+}
+
+% Define \listfigures to list figures
+\newcommand\listfigures{\figurespagetrue}
+
+% Define \listtables to list tables
+\newcommand\listtables{\tablespagetrue}
+
+% Define \listsymbols to list symbols
+\newcommand\listsymbolname{List of Symbols}
+\newcommand\listsymbols{\symbolspagetrue}
+
+% \author, \title are defined in report; here are the rest of the
+% front matter defining macros
+\def\gradyear#1{\gdef\@gradyear{#1}}
+\def\fieldofstudy#1{\gdef\@fieldofstudy{#1}\fieldofstudytrue}
+\def\copyrightyear#1{\gdef\@copyrightyear{#1}} % \author, \title in report
+\def\degree#1{\gdef\@degree{#1}}
+\def\convocationdate#1{\gdef\@convocationdate{#1}}
+\def\@title{}
+\def\@convocationdate{}
+\def\@author{}
+\def\@gradyear{}
+\def\@fieldofstudy{}
+
+\def\supervisor#1{\gdef\@supervisor{#1}}
+\def\cosupervisor#1{\gdef\@cosupervisor{#1}\two@supervisorstrue}
+\def\firstcommitteemember#1{\gdef\@firstcommitteemember{#1}}
+\def\secondcommitteemember#1{\gdef\@secondcommitteemember{#1}}
+\def\thirdcommitteemember#1{
+    \gdef\@thirdcommitteemember{#1}
+    \third@committeemembertrue}
+\def\fourthcommitteemember#1{
+    \gdef\@fourthcommitteemember{#1}
+    \fourth@committeemembertrue}
+\def\fifthcommitteemember#1{
+    \gdef\@fifthcommitteemember{#1}
+    \fifth@committeemembertrue}
+
+\def\@supervisor{}
+\def\@cosupervisor{}
+\def\@firstcommitteemember{}
+\def\@secondcommitteemember{}
+\def\@thirdcommitteemember{}
+\def\@fourthcommitteemember{}
+\def\@fifthcommitteemember{}
+
+% title page
+\def\titlepage{
+    \newpage
+    \thispagestyle{empty}
+    \ \vskip5mm
+    \centerline{\bf University of Alberta}
+    \vskip1cm
+    \begin{center}{\large\bf\MakeUppercase\@title}\end{center}
+    \vskip5mm
+    \centerline{by}
+    \vskip3mm
+    \centerline{\large\@author}
+    \vskip2.4cm
+    \centerline{A thesis submitted to the Faculty of
+    Graduate Studies and Research}
+    \centerline{in partial fulfillment of the requirements for the degree of}
+    \vskip5mm
+    \centerline{\textbf{\large \@degree}}
+    \vskip3mm
+    \iffieldofstudy
+      \centerline{in}
+      \vskip3mm
+      \centerline{\textbf{\large \@fieldofstudy}}
+    \fi
+    \vskip1cm
+    \centerline{Department of Mathematical and Statistical Sciences}
+    \vskip1cm
+
+    \centerline{\copyright\ \@author}
+    \centerline{\@convocationdate}
+    \centerline{Edmonton, Alberta}
+
+    \newpage
+    \vskip1in
+    \begin{center}\footnotesize
+      Permission is hereby granted to the University of Alberta
+      Libraries to reproduce single copies of this thesis and to lend
+      or sell such copies for private, scholarly, or scientific
+      research purposes only.  Where the thesis is converted to, or
+      otherwise made available in digital form, the University of
+      Alberta will advise potential users of the thesis of these
+      terms.
+      \medskip
+
+      \noindent
+      The author reserves all other publication and other rights in
+      association with the copyright in the thesis and, except as
+      herein before provided, neither the thesis nor any substantial
+      portion thereof may be printed or otherwise reproduced in any
+      material form whatsoever without the author's prior written
+      permission.
+    \end{center}
+}
+
+% signature page
+\def\signaturepage{
+    \newpage
+    \thispagestyle{empty}
+    \centerline{\bf Examining Committee}
+    \vskip1in
+
+    \@supervisor\\\bigskip
+
+    \iftwo@supervisors
+      \@cosupervisor\\\bigskip
+    \fi
+
+    \@firstcommitteemember\\\bigskip
+
+    \@secondcommitteemember\\\bigskip
+
+    \ifthird@committeemember
+      \@thirdcommitteemember\\\bigskip
+    \fi
+
+    \iffourth@committeemember
+      \@fourthcommitteemember\\\bigskip
+    \fi
+
+    \iffifth@committeemember
+      \@fifthcommitteemember\\\bigskip
+    \fi
+}
+
+\newenvironment{dedication}{
+      \newpage
+      \thispagestyle{empty}
+}{}
+
+\renewenvironment{abstract}{
+    \newpage
+    \thispagestyle{empty}
+    \centerline{\large\bf Abstract}
+    \vskip0.5in
+}{}
+
+\newenvironment{acknowledgement}{
+      \newpage
+      \thispagestyle{empty}
+      \centerline{\large\bf Acknowledgements}
+      \vskip0.5in
+}{}
+
+\newenvironment{preface}{
+      \newpage
+      \thispagestyle{empty}
+      \centerline{\large\bf Preface}
+      \vskip0.5in
+}{}
+
+\def\mathstyle{
+    \thispagestyle{empty}
+    \noindent
+    {\tt\large This thesis is prepared by using the style file mathesis.sty
+    written by Hongtao Yang for {\rm \LaTeX} according to the requirement
+    of thesis format of the University of Alberta.}\vskip7in
+    \centerline{\large \@date}%
+}
+
+\def\listofsymbols{
+      \if@twocolumn
+         \@restonecoltrue\onecolumn
+      \else
+         \@restonecolfalse
+      \fi
+      \chapter*{\listsymbolname
+         \@mkboth{\MakeUppercase\listsymbolname}
+              {\MakeUppercase\listsymbolnam}
+      }
+      \@starttoc{lof}
+      \if@restonecol\twocolumn\fi
+}
+
+% for thebibilography: books or papers written by the same author(s)
+%\def\sameauthor{\leavevmode\vrule height 2pt depth -1.6pt width 23pt}
