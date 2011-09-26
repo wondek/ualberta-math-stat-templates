@@ -1,0 +1,153 @@
+% run the following commands:
+%latex thesis
+%bibtex thesis
+%latex thesis
+%makeindex thesis
+%latex thesis
+%latex thesis
+\documentclass[12pt,openany,twoside,draftmode]{report}
+\usepackage[lined,algonl,boxed]{algorithm2e} 
+\usepackage{mathesis}
+\usepackage{bm,graphicx,amsfonts,makeidx}
+\usepackage[driverfallback=hypertex]{hyperref}
+\usepackage{hypercitebracket}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{draftmode}
+\usepackage{verbatim}
+\usepackage{math}
+\usepackage{mathrsfs}
+\usepackage{setspace}
+\usepackage{cancel}
+\usepackage{float}
+\usepackage{multirow}
+%\usepackage{showlabels} %%% shows labels in the margin; useful for drafts.
+
+
+
+\textheight 8.5in
+\textwidth 5.5in 
+\topmargin -0.5in
+\oddsidemargin 0.5in
+\evensidemargin 0.5in
+
+\renewcommand{\baselinestretch}{1.37}
+
+\bibliographystyle{rmp2}
+
+\makeindex
+
+\begin{document}
+
+\def\thechapter       {\arabic{chapter}}
+\def\thesection       {\arabic{chapter}.\Alph{section}}
+\def\thefigure        {\arabic{chapter}.\arabic{figure}}
+\def\theequation      {\arabic{chapter}.\arabic{equation}}
+
+\thispagestyle{empty}
+
+%\begin{asydef}
+%// Global definitions can be put here.
+%\end{asydef}
+
+\title{Super-Cool Math / Stat Stuff}
+
+\author{A.\ Student}
+\gradyear{2038}
+\convocationdate{Season, 2038}
+\degree{Master of Science / Doctor of Philosophy}
+%\degree{Masters of Science}
+\supervisor{Dr.\ Supervisor}
+%\cosupervisor{your co-supervisor} % if applicable
+\firstcommitteemember{Dr.\ Committee Person}
+\secondcommitteemember{Dr.\ Committee Person}
+%\thirdcommitteemember{}
+%\fourthcommitteemember{}
+%\fifthcommitteemember{}
+
+% specify the field of study
+\fieldofstudy{Applied Mathematics}
+
+\titlepage
+%%\libraryreleaseform
+%\signaturepage
+
+%\begin{dedication}
+%\end{dedication}
+
+\doublespacing
+
+\begin{abstract}
+  Witty and concise abstract.  References to \cite{MathStats38} and
+  \cite{Physicist38}.
+\end{abstract}
+
+%\begin{preface}
+% preface? we don't need no stinking preface.
+%\end{preface}
+
+\begin{acknowledgement}
+  Heartfelt acknowledgements.
+\end{acknowledgement}
+
+\beforebodyoftex
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\beginbodyoftex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{Introduction}
+
+Introduction!
+
+\chapter{Super-Cool Stuff}
+
+It really is pretty cool.
+
+\chapter{Conclusion}
+
+We should really get a beer now.
+
+\singlespacing
+{
+\bibliography{refs}
+}
+
+\vfill
+\textheight 9in
+\eject
+\topmargin -1in
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
+\end{document}
+
+% LocalWords:  Heimpel dealiasing spectrally modelling Eulerian sumforces le ak
+% LocalWords:  introadvP incompressibility divuzero Novikov vortdef nsintro kSp
+% LocalWords:  intromap laminarly formulae introspec rigour FIXME Hermitian nsw
+% LocalWords:  kincomp dnsw xk generalwkform noncanonical kq nswkgenliouville
+% LocalWords:  Liouville dnswk Hermiticity hermitsym ergodicity favour FFT hoc
+% LocalWords:  nonlinearities DN neighbour neighbours shellmodelgen DNintro ia
+% LocalWords:  modelled DNlargel largelgoy steadycontR conthat contmom dzeta ib
+% LocalWords:  zetapcont viscosities etad dnrec ik nk bc convolutive convdef na
+% LocalWords:  ary unary narydef discon FFTs convcyc ve unshifted dealiases qm
+% LocalWords:  multi FinvD phasedealias dimen sional priori unpruned jk qn fft
+% LocalWords:  notafft tm fftpq rk fftpqinv fftcent kp fftcentinv fftpadForward
+% LocalWords:  fftpadBackward cconv padBackward padForward unpadded conv cconvd
+% LocalWords:  recursed favourably convd naryseq narytheorem bh ag naryall nm
+% LocalWords:  naryser narysercent narypar naryparcent cconvdcomplexity dealias
+% LocalWords:  biconvolutions dm parallelized gray GOYtoDN sigmamode Laplacian
+% LocalWords:  realsig Eell sigmat uninterpolated unaveraged norezero bilinear
+% LocalWords:  posteriori decimations NL GOYb DNa sr dns DSR DSRnewt SG versa
+% LocalWords:  undecimated subgrid's msdEdt msdZdt unsynchronized nc cmgrid
+% LocalWords:  cmsgrid ddnssets enstrophies theoremquan splitchangegridk ekvkeq
+% LocalWords:  splitchangegridfnu parallelize
