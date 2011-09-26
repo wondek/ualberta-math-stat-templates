@@ -1,19 +1,19 @@
-% run the following commands:
-%latex thesis
-%bibtex thesis
-%latex thesis
-%makeindex thesis
-%latex thesis
-%latex thesis
-\documentclass[12pt,openany,twoside,draftmode]{report}
+\documentclass[12pt,openany,oneside]{report}
+
 \usepackage[lined,algonl,boxed]{algorithm2e} 
 \usepackage{mathesis}
 \usepackage{bm,graphicx,amsfonts,makeidx}
-\usepackage[driverfallback=hypertex]{hyperref}
+%\usepackage[driverfallback=hypertex]{hyperref}
+\usepackage[driverfallback=hypertex,
+  pdftitle={Thesis},             %%%% put your title here
+  pdfpagemode=UseOutlines,
+  colorlinks=false,
+  pdfauthor={Student Name},      %%%% Put your name here
+  pdfpagetransition=Dissolve,
+  bookmarks=true]{hyperref}
 \usepackage{hypercitebracket}
 \usepackage{multicol}
 \usepackage{fancyhdr}
-\usepackage{draftmode}
 \usepackage{verbatim}
 \usepackage{math}
 \usepackage{mathrsfs}
@@ -21,9 +21,12 @@
 \usepackage{cancel}
 \usepackage{float}
 \usepackage{multirow}
-%\usepackage{showlabels} %%% shows labels in the margin; useful for drafts.
 
-
+% an easy way to hide text.
+\newcommand{\printIfTrue}[2]
+{
+  \ifthenelse{\equal{#1}{true}}{#2}{}
+}
 
 \textheight 8.5in
 \textwidth 5.5in 
@@ -44,6 +47,10 @@
 \def\thefigure        {\arabic{chapter}.\arabic{figure}}
 \def\theequation      {\arabic{chapter}.\arabic{equation}}
 
+% uncomment this line when submitting to Library and Archives Canada,
+% as they need a single-sided version.
+\setboolean{@twoside}{true}
+
 \thispagestyle{empty}
 
 %\begin{asydef}
@@ -54,8 +61,8 @@
 
 \author{A.\ Student}
 \gradyear{2038}
-\convocationdate{Season, 2038}
-\degree{Master of Science / Doctor of Philosophy}
+\convocationdate{Fall 2038}
+\degree{Doctor of Philosophy}
 %\degree{Masters of Science}
 \supervisor{Dr.\ Supervisor}
 %\cosupervisor{your co-supervisor} % if applicable
@@ -65,7 +72,10 @@
 %\fourthcommitteemember{}
 %\fifthcommitteemember{}
 
-% specify the field of study
+
+\department{Department of Mathematical and Statistical Sciences}
+
+% specify the field of study / specialization
 \fieldofstudy{Applied Mathematics}
 
 \titlepage
@@ -92,9 +102,12 @@
 
 \beforebodyoftex
 
+
 \tableofcontents
-\listoffigures
+
 \listoftables
+
+\listoffigures
 
 \beginbodyoftex
 
