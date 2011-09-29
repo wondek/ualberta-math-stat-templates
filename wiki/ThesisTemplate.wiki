@@ -1,0 +1,21 @@
+#summary Information about the thesis template
+
+= Introduction =
+
+This template is designed to match the requirements for theses submitted
+at the University of Alberta.  
+
+Please note that this has not yet been tested!  Once the next round of thesis submission is finished at the end of September 2011, we'll update the template to more closely reflect the requirements set by FGSR.  We're also hoping to work with FGSR so that we can add changes to the template when FGSR changes their regulations; currently, we are updating the template when someone submits and tells us that they had some problem.
+
+
+= Details =
+
+You can compile using 
+{{{
+latexmk thesis
+}}}
+or
+{{{
+latexmk -pdf thesis
+}}}
+if you want to create a PDF directly, which will set up the author name in the resulting PDF correctly.  The file convertepstopdf.sh converts all eps files in a directory to PDF and then crops them, as ps2pdf seems to make page-sized PDFs regardless of the size of the input eps/ps file.
