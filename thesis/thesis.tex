@@ -1,16 +1,7 @@
 \documentclass[12pt,openany,oneside]{report}
-
 \usepackage[lined,algonl,boxed]{algorithm2e} 
 \usepackage{mathesis}
 \usepackage{bm,graphicx,amsfonts,makeidx}
-%\usepackage[driverfallback=hypertex]{hyperref}
-\usepackage[driverfallback=hypertex,
-  pdftitle={Thesis},             %%%% put your title here
-  pdfpagemode=UseOutlines,
-  colorlinks=false,
-  pdfauthor={Student Name},      %%%% Put your name here
-  pdfpagetransition=Dissolve,
-  bookmarks=true]{hyperref}
 \usepackage{hypercitebracket}
 \usepackage{multicol}
 \usepackage{fancyhdr}
@@ -21,6 +12,21 @@
 \usepackage{cancel}
 \usepackage{float}
 \usepackage{multirow}
+
+
+\definecolor{heavyblue}{cmyk}{1,1,0,0.25}
+
+\hypersetup{
+  pdftitle=Multispectral Reduction of Two-Dimensional Turbulence,
+  pdfpagemode=UseOutlines,
+  citebordercolor=0 0 1,
+  colorlinks=true,
+  allcolors=heavyblue,
+  breaklinks=true,
+  pdfauthor={Malcolm Roberts},
+  pdfpagetransition=Dissolve,
+  bookmarks=true
+}
 
 % an easy way to hide text.
 \newcommand{\printIfTrue}[2]
@@ -79,9 +85,10 @@
 \fieldofstudy{Mathematics}
 
 \titlepage
-%%\libraryreleaseform
 
-%\signaturepage
+%%\libraryreleaseform %%% not currently needed by FGSR
+
+%\signaturepage %%% not currently needed by FGSR
 
 %\begin{dedication}
 %\end{dedication}
