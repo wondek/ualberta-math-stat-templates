@@ -16,17 +16,7 @@
 
 \definecolor{heavyblue}{cmyk}{1,1,0,0.25}
 
-\hypersetup{
-  pdftitle=Multispectral Reduction of Two-Dimensional Turbulence,
-  pdfpagemode=UseOutlines,
-  citebordercolor=0 0 1,
-  colorlinks=true,
-  allcolors=heavyblue,
-  breaklinks=true,
-  pdfauthor={Malcolm Roberts},
-  pdfpagetransition=Dissolve,
-  bookmarks=true
-}
+
 
 % an easy way to hide text.
 \newcommand{\printIfTrue}[2]
@@ -63,13 +53,33 @@
 %// Global definitions can be put here.
 %\end{asydef}
 
-\title{Super-Cool Math / Stat Stuff}
+% this sets the metadata for the PDF (if compiled with pdflatex)
+% set pdftitle to your thesis title, and pdfauthor to your name.
+\hypersetup{
+  pdftitle=Thesis Title,
+  pdfauthor=Student Name,
+  pdfpagemode=UseOutlines,
+  citebordercolor=0 0 1,
+  colorlinks=true,
+  allcolors=heavyblue,
+  breaklinks=true,
+  pdfpagetransition=Dissolve,
+  bookmarks=true
+}
 
-\author{A.\ Student}
-\gradyear{2038}
-\convocationdate{Fall 2038}
+
+\title{Thesis Title}
+
+\author{Student Name}
+
+% convocation date must either be ``Spring 20xx'' or ``Fall 20xx''
+\convocationdate{Spring 2012}
+%\convocationdate{Fall 2012}
+
 \degree{Doctor of Philosophy}
 %\degree{Masters of Science}
+
+
 \supervisor{Dr.\ Supervisor}
 %\cosupervisor{your co-supervisor} % if applicable
 \firstcommitteemember{Dr.\ Committee Person}
@@ -81,14 +91,14 @@
 
 \department{Department of Mathematical and Statistical Sciences}
 
-% specify the field of study / specialization
+% If you have a specialization, enter it here
 \fieldofstudy{Mathematics}
 
 \titlepage
 
-%%\libraryreleaseform %%% not currently needed by FGSR
 
-%\signaturepage %%% not currently needed by FGSR
+%\libraryreleaseform %%% not currently required by FGSR
+%\signaturepage %%% not currently required by FGSR
 
 %\begin{dedication}
 %\end{dedication}
@@ -113,8 +123,10 @@
 
 \tableofcontents
 
+% if you have no tables, please comment-out this line:
 \listoftables
 
+% if you have no figures, please comment-out this line:
 \listoffigures
 
 \beginbodyoftex
@@ -128,9 +140,38 @@
 
 Introduction!
 
+Also, Table~\ref{egtable}.
+
+\begin{table}[htbp]
+  \begin{center}
+    \begin{tabular}{|p{4cm}|p{4cm}|}
+      \hline
+      Spring 20xx & Fall 20xx \\
+      \hline
+      \hline
+      if submitting between Oct 1--April 15
+      & if submitting between April 16--Sept 30\\
+      \hline
+    \end{tabular}
+    \caption{Convocation date}
+    \label{egtable}
+  \end{center}
+\end{table}
+
+
 \chapter{Super-Cool Stuff}
 
-It really is pretty cool.
+It really is pretty cool.  Consider the Venn diagram in Figure~\ref{venn}.
+
+\begin{figure}[htbp]
+  \begin{center}        
+    \includegraphics{venn}
+    \caption{A Venn diagram}
+    \label{venn}
+  \end{center}
+\end{figure}
+
+
 
 \chapter{Conclusion}
 
@@ -151,24 +192,3 @@ We should really get a beer now.
 \printindex
 
 \end{document}
-
-% LocalWords:  Heimpel dealiasing spectrally modelling Eulerian sumforces le ak
-% LocalWords:  introadvP incompressibility divuzero Novikov vortdef nsintro kSp
-% LocalWords:  intromap laminarly formulae introspec rigour FIXME Hermitian nsw
-% LocalWords:  kincomp dnsw xk generalwkform noncanonical kq nswkgenliouville
-% LocalWords:  Liouville dnswk Hermiticity hermitsym ergodicity favour FFT hoc
-% LocalWords:  nonlinearities DN neighbour neighbours shellmodelgen DNintro ia
-% LocalWords:  modelled DNlargel largelgoy steadycontR conthat contmom dzeta ib
-% LocalWords:  zetapcont viscosities etad dnrec ik nk bc convolutive convdef na
-% LocalWords:  ary unary narydef discon FFTs convcyc ve unshifted dealiases qm
-% LocalWords:  multi FinvD phasedealias dimen sional priori unpruned jk qn fft
-% LocalWords:  notafft tm fftpq rk fftpqinv fftcent kp fftcentinv fftpadForward
-% LocalWords:  fftpadBackward cconv padBackward padForward unpadded conv cconvd
-% LocalWords:  recursed favourably convd naryseq narytheorem bh ag naryall nm
-% LocalWords:  naryser narysercent narypar naryparcent cconvdcomplexity dealias
-% LocalWords:  biconvolutions dm parallelized gray GOYtoDN sigmamode Laplacian
-% LocalWords:  realsig Eell sigmat uninterpolated unaveraged norezero bilinear
-% LocalWords:  posteriori decimations NL GOYb DNa sr dns DSR DSRnewt SG versa
-% LocalWords:  undecimated subgrid's msdEdt msdZdt unsynchronized nc cmgrid
-% LocalWords:  cmsgrid ddnssets enstrophies theoremquan splitchangegridk ekvkeq
-% LocalWords:  splitchangegridfnu parallelize
