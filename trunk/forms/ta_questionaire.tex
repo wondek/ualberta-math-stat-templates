@@ -1,23 +1,23 @@
 \documentclass[10pt]{report}
 \usepackage{hyperref}
 \usepackage{calc}
+\usepackage[margin=1in]{geometry}
+\pagestyle{empty}
+\renewcommand{\labelenumii}{(\Alph{enumii})}
 
-\def\fTextField#1#2{\newdimen\stringwidth
-  \setlength{\stringwidth}{\linewidth - \widthof{#1}-\widthof{\subitem}}
-  \TextField[width=\stringwidth,#2]{#1}}
+\newdimen\stringwidth
+\stringwidth=3.5in
 
 \begin{document}
 \begin{center}
-{\Large TA DUTIES QUESTIONAIRE}
+{\Large TA DUTIES QUESTIONNAIRE}
 \\
-Winter Term 2011
+Winter Term 2012
 \end{center}
 Please complete the questionnaire below and {\bf return to Patti by
-  December 3rd, 2010}.  An effort will be made to accommodate your
+  December 5th, 2011}.  An effort will be made to accommodate your
 requests; the more flexible you are in your choices the higher the
 probability that your request(s) can be accommodated.
-
-\newdimen\stringwidth
 
 \begin{enumerate}
 \item
@@ -29,52 +29,45 @@ probability that your request(s) can be accommodated.
 
 \item
   Indicate below the type of teaching assistant duties that you would
-  prefer.  If you prefer labs, please indicate the courses in which
+  prefer.  \textbf{If you prefer labs, please indicate the courses in which
   you prefer to have labs.  Please select more than one of the items
-  listed below.  Please indicate if you are comfortable doing first
+  listed below.}  Please indicate if you are comfortable doing first
   year statistics labs.
-  \subitem
-  \fTextField{Labs in Mathematics courses:}{maxlen=30,name=mathlabs,align=0}
-  \subitem 
-  \fTextField{Labs in Statistics courses:}{maxlen=30,name=statlabs,align=0}
+  \begin{enumerate}
+  \item Labs in Mathematics courses:\hfill\TextField[width=\stringwidth,maxlen=30,name=mathlabs,align=0]{}
+  \item Labs in Statistics courses:\hfill\TextField[width=\stringwidth,maxlen=30,name=statlabs,align=0]{}
+
   {\bf For students requesting Statistics labs, please indicate what
-    statistical software you are familiar with}:
-  \TextField[maxlen=30,width=4.5cm,name=statsoft,align=0]{}
+    statistical software you are familiar with}:\hfill
+  \TextField[maxlen=30,width=\stringwidth,name=statsoft,align=0]{}
   
-  \subitem
-  \fTextField{Help Sessions in Mathematics:}
-             {maxlen=30,name=mathhelp,align=0}
-  \subitem
-  \fTextField{Help Sessions in Statistics:}
-             {maxlen=30,name=stathelp,align=0}
-  \subitem
-  \fTextField{Assignment Grading (Please be specific):}
-             {maxlen=30,name=hwgrading,align=0}
-  \subitem
-  \fTextField{Assisting with exams in large classes:}
-            {maxlen=30,name=examgrading,align=0}
-  \subitem
-  \fTextField{No Preferences:}{maxlen=30,name=nopref,align=0}
+  \item Help Sessions in Mathematics:\hfill\TextField[width=\stringwidth,maxlen=30,name=mathhelp,align=0]{}
+  \item Help Sessions in Statistics:\hfill\TextField[width=\stringwidth,maxlen=30,name=stathelp,align=0]{}
+  \item Assignment Grading (be specific):\hfill\TextField[width=\stringwidth,maxlen=30,name=hwgrading,align=0]{}
+  \item Assisting with exams in large classes:\hfill\TextField[width=\stringwidth,maxlen=30,name=examgrading,align=0]{}
+  \item Science 100:\hfill\TextField[width=\stringwidth,maxlen=30,name=sci100,align=0]{}
+    \\ (Applied math \textbf{and} computer programming required)
+  \end{enumerate}
 
 \item 
-  Indicate any times to be {\bf AVOIDED} for TA duties.
+  Indicate any special times to be {\bf AVOIDED} for TA duties.
   Please give reasons.
   \TextField[maxlen=600,name=avoid,
     width=\linewidth,height=1cm,align=0,multiline=true]{\\}
 
 \item 
-  \ChoiceMenu[combo]{ Have you fulfilled your 2 term colloquium
+  \ChoiceMenu[combo]{Have you fulfilled your 2 term colloquium
     requirement as detailed in the Department Regulations and
-    Guidelines for Graduate Programs (Section~1.9)?}{Yes,No}
+    Guidelines for Graduate Programs?}{Yes,No}
 
-\item 
-  \TextField[maxlen=600,name=comments,width=\linewidth,height=1cm,align=0,multiline=true]{Other Comments: \\}
-
+\item
+  Do you have any scholarships/supervisor funding?  If yes, please provide details  
+  (e.g., NSERC, U of A PhD/MSc Entrance Scholarship, QE II, CHIA, International Student Scholarship Agreement (CONACYT, CSC, etc.))
+  \TextField[maxlen=600,name=funding,
+    width=\linewidth,height=1cm,align=0,multiline=true]{\\}
 \end{enumerate}
 
-
-\noindent
-\fTextField{Student Name:}{maxlen=30,name=myname,align=0}
+\noindent Student Name: \TextField[maxlen=30,name=myname,align=0,width=\stringwidth]{}
 
 \end{document}
 
