@@ -1,4 +1,4 @@
-\documentclass[10pt]{report}
+\documentclass[11pt]{report}
 \usepackage{hyperref}
 \usepackage{calc}
 \usepackage[margin=1in]{geometry}
@@ -6,7 +6,7 @@
 \renewcommand{\labelenumii}{(\Alph{enumii})}
 
 \newdimen\stringwidth
-\stringwidth=3.5in
+\stringwidth=3.25in
 
 \begin{document}
 \begin{center}
@@ -25,7 +25,7 @@ probability that your request(s) can be accommodated.
   taking/attending during the winter term.  {\bf Please indicate any
   audited courses/seminars.}
   \TextField[maxlen=600,name=courseandseminar,
-    width=\linewidth,height=1cm,align=0,multiline=true]{\\}
+    width=\linewidth,align=0,multiline=true]{\\}
 
 \item
   Indicate below the type of teaching assistant duties that you would
@@ -53,7 +53,7 @@ probability that your request(s) can be accommodated.
   Indicate any special times to be {\bf AVOIDED} for TA duties.
   Please give reasons.
   \TextField[maxlen=600,name=avoid,
-    width=\linewidth,height=1cm,align=0,multiline=true]{\\}
+    width=\linewidth,align=0,multiline=true]{\\}
 
 \item 
   \ChoiceMenu[combo]{Have you fulfilled your 2 term colloquium
@@ -64,7 +64,7 @@ probability that your request(s) can be accommodated.
   Do you have any scholarships/supervisor funding?  If yes, please provide details  
   (e.g., NSERC, U of A PhD/MSc Entrance Scholarship, QE II, CHIA, International Student Scholarship Agreement (CONACYT, CSC, etc.))
   \TextField[maxlen=600,name=funding,
-    width=\linewidth,height=1cm,align=0,multiline=true]{\\}
+    width=\linewidth,align=0,multiline=true]{\\}
 \end{enumerate}
 
 \noindent Student Name: \TextField[maxlen=30,name=myname,align=0,width=\stringwidth]{}
