@@ -3,20 +3,22 @@
 \usepackage{calc}
 \usepackage{multirow}
 \usepackage{textcomp}
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=0.3in]{geometry}
 %\pagestyle{ } 
 \renewcommand{\labelenumii}{(\Alph{enumii})}
 
 \newdimen\stringwidth
 \stringwidth=2.25in
 \newdimen\boxwidth
-\boxwidth=0.4in
+\boxwidth=0.51in
+\newdimen\dateboxwidth
+\dateboxwidth=0.57in
 
 \begin{document}
 \begin{center}{ \Large
 Canadian Mathematical Society\\
 TRAVEL/EXPENSE CLAIM FORM\\}
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 Please consult your Committee Chair or other person responsible for
 the budget in question for prior approval of your travel claim. Send
@@ -26,27 +28,36 @@ Ontario K1G 3V4
 \end{center}
 
 \begin{center}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}|l|c|c|c|c|c|c|c|}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}|p{5cm}|c|c|c|c|c|c|c|}
   \hline
-  \multirow{3}{*}{\footnotesize\emph{ See reverse for details on required receipts}}
-  & \multirow{3}{*}{Date:}
-  & \multirow{3}{*}{Date:}
-  & \multirow{3}{*}{Date:}
-  & \multirow{3}{*}{Date:}
-  & \multicolumn{3}{c|}{Totals}\\
-  & & & & 
+  %\multirow{3}{*}{\footnotesize\emph{ See reverse for details on required receipts}}
+  \emph{ See reverse for details on}
+  & Date:
+  & Date:
+  & Date:
+  & Date:
+  &\multicolumn{3}{c|}{Totals}\\
+  \emph{required receipts.}
+   & \multirow{2}{*}{
+    \hfill\TextField[width=\dateboxwidth,maxlen=30,name=date1,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\dateboxwidth,maxlen=30,name=date2,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\dateboxwidth,maxlen=30,name=date3,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\dateboxwidth,maxlen=30,name=date4,align=0]{}}
   &  \multicolumn{3}{c|}{\footnotesize (separate US from CAD expenses)} \\
-  & & & & & US & GST/HST & CAD \\
+   Date format: YY-MM-DD. & & & & & US & GST/HST & CAD \\
   \hline
   \multirow{2}{*}{Travel (air, train, car)}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=car1,align=0,multiline=true]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=car1,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=car2,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=car2,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=car3,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=car3,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=car4,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=car4,align=0]{\$}}
   & \multirow{2}{*}{
     \hfill\TextField[width=\boxwidth,maxlen=30,name=cadUSD,align=0]{}}
   & \multirow{2}{*}{
@@ -56,13 +67,13 @@ Ontario K1G 3V4
   & & & & & & & \\\hline
   \multirow{2}{*}{Taxis (receipt required)}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=taxi1,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=taxi1,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=taxi2,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=taxi2,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=taxi3,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=taxi3,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=taxi4,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=taxi4,align=0]{\$}}
   & \multirow{2}{*}{
     \hfill\TextField[width=\boxwidth,maxlen=30,name=taxiUSD,align=0]{}}
   & \multirow{2}{*}{
@@ -70,31 +81,31 @@ Ontario K1G 3V4
   & \multirow{2}{*}{
     \hfill\TextField[width=\boxwidth,maxlen=30,name=taxiCAD,align=0]{}}\\
   & & & & & & & \\\hline
-  Accomm.\ {\footnotesize (basic room and taxes only)}
+  Accomm {\footnotesize (basic room and taxes only)}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=acc1,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=acc1,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=acc2,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=acc2,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=acc3,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=acc3,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=acc4,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=acc4,align=0]{\$}}
   & \multirow{2}{*}{
     \hfill\TextField[width=\boxwidth,maxlen=30,name=accUSD,align=0]{}}
   & \multirow{2}{*}{
     \hfill\TextField[width=\boxwidth,maxlen=30,name=accT,align=0]{}}
   & \multirow{2}{*}{
     \hfill\TextField[width=\boxwidth,maxlen=30,name=accCAD,align=0]{}}\\
-  {\small (\$20 per day for private accommodation)} & & & & & & & \\\hline
+  {\footnotesize (\$20 per day for private accomm.)} & & & & & & & \\\hline
   \multirow{2}{*}{Breakfast: \$10.00 per day}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=brk1,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=brk1,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=brk2,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=brk2,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=brk3,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=brk3,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=brk4,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=brk4,align=0]{\$}}
   & \multirow{2}{*}{
     \hfill\TextField[width=\boxwidth,maxlen=30,name=brkUSD,align=0]{}}
   & \multirow{2}{*}{
@@ -104,13 +115,13 @@ Ontario K1G 3V4
   & & & & & & & \\\hline 
   \multirow{2}{*}{Lunch: \$12.00 per day}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=lnch1,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=lnch1,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=lnch2,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=lnch2,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=lnch3,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=lnch3,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=lnch4,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=lnch4,align=0]{\$}}
   & \multirow{2}{*}{
     \hfill\TextField[width=\boxwidth,maxlen=30,name=lnchUSD,align=0]{}}
   & \multirow{2}{*}{
@@ -120,13 +131,13 @@ Ontario K1G 3V4
   & & & & & & & \\\hline
   \multirow{2}{*}{Dinner: \$30.00 per day}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=dinn1,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=dinn1,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=dinn2,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=dinn2,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=dinn3,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=dinn3,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=dinn4,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=dinn4,align=0]{\$}}
   & \multirow{2}{*}{
     \hfill\TextField[width=\boxwidth,maxlen=30,name=dinnUSD,align=0]{}}
   & \multirow{2}{*}{
@@ -136,13 +147,13 @@ Ontario K1G 3V4
   & & & & & & & \\\hline
   Misc {\footnotesize (receipts needed if other than per diem)}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=diem1,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=diem1,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=diem2,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=diem2,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=diem3,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=diem3,align=0]{\$}}
   & \multirow{2}{*}{
-    \hfill\TextField[width=\boxwidth,maxlen=30,name=diem4,align=0]{}}
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=diem4,align=0]{\$}}
   & \multirow{2}{*}{
     \hfill\TextField[width=\boxwidth,maxlen=30,name=diemUSD,align=0]{}}
   & \multirow{2}{*}{
