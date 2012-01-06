@@ -1,0 +1,308 @@
+\documentclass[10pt]{report}
+\usepackage{hyperref}
+\usepackage{calc}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage[margin=0.5in]{geometry}
+%\pagestyle{ } 
+\renewcommand{\labelenumii}{(\Alph{enumii})}
+
+\newdimen\stringwidth
+\stringwidth=2.25in
+\newdimen\boxwidth
+\boxwidth=0.4in
+
+\begin{document}
+\begin{center}{ \Large
+Canadian Mathematical Society\\
+TRAVEL/EXPENSE CLAIM FORM\\}
+\vspace{0.5cm}
+
+Please consult your Committee Chair or other person responsible for
+the budget in question for prior approval of your travel claim. Send
+your completed form, with all required receipts to:\\ 
+Canadian Mathematical Society, 209-1725 St. Laurent Blvd, Ottawa,
+Ontario K1G 3V4
+\end{center}
+
+\begin{center}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}|l|c|c|c|c|c|c|c|}
+  \hline
+  \multirow{3}{*}{\footnotesize\emph{ See reverse for details on required receipts}}
+  & \multirow{3}{*}{Date:}
+  & \multirow{3}{*}{Date:}
+  & \multirow{3}{*}{Date:}
+  & \multirow{3}{*}{Date:}
+  & \multicolumn{3}{c|}{Totals}\\
+  & & & & 
+  &  \multicolumn{3}{c|}{\footnotesize (separate US from CAD expenses)} \\
+  & & & & & US & GST/HST & CAD \\
+  \hline
+  \multirow{2}{*}{Travel (air, train, car)}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=car1,align=0,multiline=true]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=car2,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=car3,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=car4,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=cadUSD,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=carT,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=carCAD,align=0]{}}\\
+  & & & & & & & \\\hline
+  \multirow{2}{*}{Taxis (receipt required)}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=taxi1,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=taxi2,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=taxi3,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=taxi4,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=taxiUSD,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=taxiT,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=taxiCAD,align=0]{}}\\
+  & & & & & & & \\\hline
+  Accomm.\ {\footnotesize (basic room and taxes only)}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=acc1,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=acc2,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=acc3,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=acc4,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=accUSD,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=accT,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=accCAD,align=0]{}}\\
+  {\small (\$20 per day for private accommodation)} & & & & & & & \\\hline
+  \multirow{2}{*}{Breakfast: \$10.00 per day}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=brk1,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=brk2,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=brk3,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=brk4,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=brkUSD,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=brkT,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=brkCAD,align=0]{}}\\
+  & & & & & & & \\\hline 
+  \multirow{2}{*}{Lunch: \$12.00 per day}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=lnch1,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=lnch2,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=lnch3,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=lnch4,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=lnchUSD,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=lnchT,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=lnchCAD,align=0]{}}\\
+  & & & & & & & \\\hline
+  \multirow{2}{*}{Dinner: \$30.00 per day}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=dinn1,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=dinn2,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=dinn3,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=dinn4,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=dinnUSD,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=dinnT,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=dinnCAD,align=0]{}}\\
+  & & & & & & & \\\hline
+  Misc {\footnotesize (receipts needed if other than per diem)}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=diem1,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=diem2,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=diem3,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=diem4,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=diemUSD,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=diemT,align=0]{}}
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=diemCAD,align=0]{}}\\
+  Per diem: \$10.00 per day & & & & & & & \\\hline
+  \multicolumn{3}{|c|}{\multirow{2}{*}{Cheques to be issued in: 
+      \CheckBox[height=0.1in,width=0.1in]{CAD} \quad
+      \CheckBox[height=0.1in,width=0.1in]{USD}}} & 
+  \multicolumn{2}{c|}{\multirow{2}{*}{Total expenses}}  
+  & \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=totUS,align=0]{}}
+  &  \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=totT,align=0]{}} 
+  &  \multirow{2}{*}{
+    \hfill\TextField[width=\boxwidth,maxlen=30,name=totCAD,align=0]{}}\\
+  \multicolumn{3}{|c|}{} &\multicolumn{2}{c|}{}   & & & \\\hline
+  \multicolumn{8}{|l|}{Totals in the other currencies will be
+    converted accordingly and only one cheque will be issued.}\\  
+  \multicolumn{8}{|l|}{A US exchange rate is established on
+    the first of every month.}\\\hline
+\end{tabular*}
+\end{center}
+
+\begin{center}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}|l|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{\multirow{2}{*}{Committee / Board:\hfill\TextField[width=\stringwidth,maxlen=30,name=committee,align=0]{}}} 
+    & \multirow{2}{*}{Position:\hfill\TextField[width=\stringwidth,maxlen=30,name=position,align=0]{}} \\
+    \multicolumn{2}{|l|}{} & \\\hline
+    \multicolumn{2}{|l|}{\multirow{2}{*}{Purpose of Trip:\hfill\TextField[width=\stringwidth,maxlen=30,name=purpose,align=0]{}}} 
+    & \multirow{2}{*}{} \\
+    \multicolumn{2}{|l|}{} & \\\hline
+    \multicolumn{2}{|l|}{\multirow{2}{*}{Name:\hfill\TextField[width=\stringwidth,maxlen=30,name=name,align=0]{}}} 
+    & \multirow{2}{*}{Signature:} \\
+    \multicolumn{2}{|l|}{} & \\\hline
+    \multicolumn{3}{|l|}{\multirow{2}{*}{Address:\hfill\TextField[width=2\stringwidth,maxlen=60,name=address,align=0]{}}} 
+     \\
+    \multicolumn{3}{|l|}{}  \\\hline
+    \multirow{2}{*}{Telephone:\hfill\TextField[width=\stringwidth,maxlen=30,name=phone,align=0]{}} 
+    & \multicolumn{2}{l|}{\multirow{2}{*}{email:\hfill\TextField[width=\stringwidth,maxlen=30,name=email,align=0]{}}} \\
+    &\multicolumn{2}{l|}{}  \\\hline
+  \end{tabular*}
+\end{center}
+
+\begin{center}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}|l|l|l|l|l|}
+    \hline
+    \multicolumn{5}{|l|}{\small FOR OFFICE USE ONLY} \\
+    \multicolumn{5}{|l|}{\footnotesize RECEIPTS: All original receipts are
+      attached? YES Partially reimbursed travel receipt stamped and
+      returned? YES N/A } \\\hline
+    AMOUNT TO BE CHARGED & \multicolumn{2}{c|}{ CHOOSE ONE ONLY} & Approved by & Date \\ 
+    AGAINST BUDGET (CAD) & PAY IN & PAY IN & (SIGNATURE) & \\ 
+    & CDN FUNDS & USA FUNDS &  & \\ \hline
+    \multirow{2}{*}{\$} & \multirow{2}{*}{\$}  &\multirow{2}{*}{\$}   &  & \\
+     &   &  &  & \\ \hline
+    \multirow{3}{*}{Charge to:}&  &  &  & \\ 
+    &  &  &  & \\ 
+    &  &  &  & \\ \hline
+  \end{tabular*}
+\end{center}
+
+\newpage
+
+
+\begin{center}
+  NOTES ON EXPENSE CLAIMS
+\end{center}
+
+The CMS travel/expense budget is severely limited. It is hoped that
+individuals attending business meetings who are eligible to make
+expense claims will seek alternative and/or supplementary means of
+support. For example, business trip can often be combined with a
+research-oriented trip, and expenses can be claimed from a research
+grant. Also, the individual should seek support for this trip from
+his/her own institution.
+\begin{enumerate}
+\item
+  {\bf Travel claims and submission and approval:}
+
+  Claims should be made within one week of the completion of the trip
+  and are usually processed within three weeks of receipt.
+
+  Please complete ALL sections of the form, including the address section.
+
+  Please consult your Committee Chair or other person responsible for
+  the budget in question for prior approval (prior approvals should be
+  sent to the CMS Manager, Finance and Operations at
+  finances@cms.math.ca). Sending prior approval to the office ensures
+  that we have the information required to evaluate and approve your
+  claim without delay.
+
+\item {\bf Travel:} Travel should be arranged using the most
+  economical and practical mode as follows:
+\begin{itemize}
+  \item by air, using economy fare;
+  \item by rail/bus;
+  \item by rental car, if this is practical and economical -
+    \emph{THIS MUST BE PRE-APPROVED};
+  \item by privately owned vehicle within a 200 km radius of point of
+    departure. In this case, the rate of reimbursement is
+    35\textcent{} per km. If, by exception, a privately owned vehicle
+    is used outside the 200km radius, reimbursement is made at the
+    lowest of 35\textcent{} per km or the lowest equivalent airfare.
+\end{itemize}
+{\bf NOTE : If claiming travel by rental car or by privately owned
+  vehicle (over 200 km radius), please obtain written confirmation of
+  the lowest equivalent airfare from your travel agent and attach this
+  to your claim.} The lack of this information may cause delays in
+reimbursement.
+
+{\bf REQUIRED RECEIPTS:} For travel by air, rail or bus, the
+customer's copy of the fare ticket is required as a receipt. For
+electronic tickets the electronic ticket receipt is required. Please
+obtain it from your travel agent or follow the on-line instructions
+for printing the receipt. {\bf Boarding passes are also required as
+  proof of travel.}
+
+{\bf Full reimbursement:} As this copy is required for the return
+trip, those requesting and expecting full reimbursement of their
+travel fees should submit their claim upon completion of the trip.
+
+\item {\bf Accommodation:} 
+  Expenses are based on a maximum of 2 nights' accommodation per
+  business meeting. Only standard accommodation is
+  reimbursed. Original receipts are required.
+
+\item {\bf Meals:} Expenses are based on a maximum of 3 days of meals
+  per business meeting. However, when meals are included in the
+  meeting, air / train fare, or in the costs of registration fees, no
+  claim for that meal may be made. No receipts are required.
+
+\item {\bf Miscellaneous Expenses:} 
+
+  The per diem allowance is meant to cover incidental expenses such as
+  gratuities, laundry, dry cleaning and local telephone calls. No
+  receipts are required.
+
+  Receipts are required for any other expenses claimed here.
+
+\item {\bf Donations to the CMS:}
+  If the claimant whishes to donate a portion or all of his / her
+  expenses, the travel claim form should be completed as usual,
+  including all appropriate receipts. The amount of donation is to be
+  written on the line under total expenses. An income tax receipt will
+  be sent for donations over \$10.00 with the balance of the
+  reimbursement.  All original receipts must be attached. Partially
+  reimbursed receipts will be stamped and returned.  Credit card
+  receipts do not qualify as receipt
+
+\end{enumerate}
+\begin{center}
+  {\bf All original receipts must be attached. Partially reimbursed
+    receipts will be stamped and returned.  \\Credit card receipts do
+    not qualify as receipts.}
+\end{center}
+{\footnotesize Based on a June 30, 2010 revision.}
+
+
+\end{document}
+
