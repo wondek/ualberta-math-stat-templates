@@ -14,10 +14,6 @@
 \usepackage{multirow}
 
 
-\definecolor{heavyblue}{cmyk}{1,1,0,0.25}
-
-
-
 % an easy way to hide text.
 \newcommand{\printIfTrue}[2]
 {
@@ -53,32 +49,18 @@
 %// Global definitions can be put here.
 %\end{asydef}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % this sets the metadata for the PDF (if compiled with pdflatex)
-% set pdftitle to your thesis title, and pdfauthor to your name.
-\hypersetup{
-  pdftitle=Thesis Title,
-  pdfauthor=Student Name,
-  pdfpagemode=UseOutlines,
-  citebordercolor=0 0 1,
-  colorlinks=true,
-  allcolors=heavyblue,
-  breaklinks=true,
-  pdfpagetransition=Dissolve,
-  bookmarks=true
-}
-
-
-\title{Thesis Title}
-
-\author{Student Name}
-
+% FILL THIS IN!!!
+\def\ThesisTitle{The Title of the Thesis}
+\def\ThesisAuthor{Author's Name}
 % convocation date must either be ``Spring 20xx'' or ``Fall 20xx''
 \convocationdate{Spring 2012}
-%\convocationdate{Fall 2012}
-
 \degree{Doctor of Philosophy}
 %\degree{Masters of Science}
-
 
 \supervisor{Dr.\ Supervisor}
 %\cosupervisor{your co-supervisor} % if applicable
@@ -88,11 +70,29 @@
 %\fourthcommitteemember{}
 %\fifthcommitteemember{}
 
-
 \department{Department of Mathematical and Statistical Sciences}
-
 % If you have a specialization, enter it here
 \fieldofstudy{Mathematics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\definecolor{heavyblue}{cmyk}{1,1,0,0.25}
+\hypersetup{
+  pdftitle=\ThesisTitle,
+  pdfauthor=\ThesisAuthor,
+  pdfpagemode=UseOutlines,
+  citebordercolor=0 0 1,
+  colorlinks=true,
+  allcolors=heavyblue,
+  breaklinks=true,
+  pdfpagetransition=Dissolve,
+  bookmarks=true
+}
+\title{\ThesisTitle}
+\author{\ThesisAuthor}
+
 
 \titlepage
 
@@ -101,6 +101,7 @@
 %\signaturepage %%% not currently required by FGSR
 
 %\begin{dedication}
+% put your dedication here
 %\end{dedication}
 
 \doublespacing
