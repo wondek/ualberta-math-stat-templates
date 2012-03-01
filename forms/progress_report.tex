@@ -1,113 +1,83 @@
-\documentclass[10pt]{report}
+\documentclass[12pt]{report}
 \usepackage{hyperref}
-
-
+\def\DefaultHeightofChoiceMenu{10pt}
+\def\DefaultHeightofText{10pt}
+\usepackage[top=0.5in,left=0.5in,bottom=0.5in,right=0.5in]{geometry}
+\pagestyle{empty}
 \begin{document}
 \begin{center}
 {\Large Graduate Student Progress Report}
 \\
-Progress Period for period ending April 30, 2011
+Progress Period for period ending April 30, 2012
 \\
-Please return to Tara Schuetz by Monday, April 4, 2011
+Please return to Tara Schuetz by Wednesday, April 4, 2012,\\
+or email to \texttt{gradmail@math.ualberta.ca}
 \end{center}
 
 \begin{Form}
+\noindent\TextField[maxlen=30,width=6cm,name=myname,align=0]{Student Name:}
+\qquad\ChoiceMenu[combo]{Admit Term:}{Fall=fall,Winter=winter} \TextField[maxlen=4,align=0,width=1cm,name=year]{Year: }
 
-  \noindent
-  \TextField[maxlen=30,width=7cm,name=myname,align=0]{Student Name:}\\
+\noindent\TextField[maxlen=30,width=5cm,name=sup,align=0]{Supervisor:}
+\quad\TextField[maxlen=30,width=5cm,name=cosup,align=0]{Co-Supervisor:} (If applicable)
+
+\noindent\ChoiceMenu[radio]{Program:}{PhD=phd,MSc=msc,MSc (course-based)=msccourse}
+\qquad\ChoiceMenu[combo]{Area of Research:}{Applied Math=applied,Pure Math=pure,Math Finance=finance,Biostatistics=biostat,Statistics=stats,Math.\ Physics=mathphys, Stat.\ Machine Learning=learning}
+
+\noindent\TextField[maxlen=15,name=nomoney,align=0]{Funding Completion Date:}\\
+{\small Note: PhD maximum 5 years, MSc maximum 2 years from start of program}
+
+\noindent\TextField[maxlen=15,name=complete,align=0]{Projected Completion Date:}\\
+{\small Note: PhD maximum 6 years, MSc thesis maximum 4 years, MSc course-based maximum 6 years}
+
+\noindent\ChoiceMenu[radio,name=project]{Your research/project is:\\}{Not Started=notstarted,Started=started,Well Established=established,Close to completion=neardone,Completed=done}
+
+\noindent\TextField[maxlen=600,name=concerns,width=\textwidth,height=4cm,align=0,multiline=true]{Please note here any concerns that you have for your graduate program:\\}
+
+\noindent\TextField[maxlen=600,name=pubs,width=\textwidth,height=4cm,align=0,multiline=true]{Publications: Please list  authors, titles,  journal status (Submitted, in press, published) during this academic year 2011/2012:\\}
   
-  \noindent
-  \ChoiceMenu[combo]{Admit Term:}{Fall,Winter},
-  %\ChoiceMenu[radio,default=maen,width=0.5cm]{ }{Fall=maen,Winter=white} 
-  \TextField[maxlen=4,align=0,width=1cm]{Year: } \\
-  
-  \noindent
-  \TextField[maxlen=30,width=7cm,name=sup,align=0]{Supervisor:},\\
-  \noindent
-  \TextField[maxlen=30,width=7cm,name=cosup,align=0]{Co-Supervisor:} (If applicable)\\
-  
-  \noindent
-  \ChoiceMenu[combo]{Program:}{PhD,MSc,MSc (course-based)},
-  \ChoiceMenu[combo]{Area of Research:}{Applied Math,Pure Math,Math Finance,Biostatistics,Statistics,Bio Statistics, Math.\ Physics, Stat.\ Machine Learning}\\
+\noindent\TextField[maxlen=600,name=pres,width=\textwidth,height=4cm,align=0,multiline=true]{Presentations: Please list seminars, conferences, sponsoring organization and location during this last academic year (2011/2012):\\}
 
-  \noindent
-  \TextField[maxlen=15,name=nomoney,align=0]{Funding Completion Date:}\\
-  \noindent
-  {\small Please note: PhD – maximum 5 years, MSC – maximum 2 years from start of program}, \\
+\noindent Please note: Travelling funds:
+FGSR gives travel grants to help graduate students participate in conferences related to their research.
+A student may apply only once in each degree program.
 
-  \noindent
-  \TextField[maxlen=15,name=complete,align=0]{Projected Completion Date:}\\
-  \noindent
-  {\footnotesize Please note: maximum is 6 years for PhD, 4 years fo MSc thesis, 6 years for MSc course-based.} \\
+\pagebreak
 
-  \noindent
-  \ChoiceMenu[combo]{Your research/project is: }{Not Started,Started,Well Established,Close to completion,Completed}\\
+\centerline{\large Twelve Month Plan}
 
-  \noindent
-  \TextField[maxlen=600,name=concerns,width=\textwidth,height=4cm,align=0,multiline=true]{Please note here any concerns that you have for your graduate program:\\}\\
+\noindent\textbf{Summer 2012}
 
-  \noindent
-  \TextField[maxlen=600,name=pubs,width=\textwidth,height=4cm,align=0,multiline=true]{Publications: Please list  authors, titles,  journal status (Submitted, in press, published) during this academic year 2010/2011:\\}\\
-  
-  \newpage
-  \noindent
-  \TextField[maxlen=600,name=pres,width=\textwidth,height=4cm,align=0,multiline=true]{Presentations: Please list seminars, conferences, sponsoring organization and location during this last academic year (2010/2011):\\}\\
+\noindent\TextField[maxlen=600,name=sumconf,width=\textwidth,height=2cm,align=0,multiline=true]{Summer 2012 conferences etc: (Please specify)\\}
 
+\noindent\TextField[maxlen=600,name=sumvac,width=\textwidth,height=0.5cm,align=0,multiline=true]{Summer 2012 vacation dates (you are allowed one week per term):\\}
+
+\noindent\ChoiceMenu[radio,name=concern]{I have a concern about my graduate program that I would
+like to discuss in confidence with the Associate Chair, Graduate.
+Please schedule an appointment for me.}{Yes=yes,No=no}
+
+\centerline{\textbf{Fall/Winter 2012/2013:}}
+
+\noindent\ChoiceMenu[radio,name=fulltime]{I will be a full-time graduate student in Fall/Winter 2012/2013.}{Yes=yes,No=no}
+
+\noindent\TextField[maxlen=600,name=other,width=5in,align=0]{Other: (Please specify)}
+
+\noindent\ChoiceMenu[radio,name=ta]{I wish to apply for a Teaching Assistantship for next year.}{Yes=yes,No=no}
+
+\noindent\ChoiceMenu[radio,name=get]{I have taken the required 8 hours in Graduate Ethics Training}{Yes=yes,No=no}\\
+{\small If you have completed the WEB CT component (equivalent to 5 hours),
+please be sure to print the summary and submit it to Tara Schuetz.}
+
+\noindent\TextField[maxlen=600,name=seminars,width=5in,align=0]{Please state which ethics seminars/dates you have attended:\\}
+
+\noindent\TextField[maxlen=600,name=candidacy,width=5cm,align=0]{Date of your Candidacy Exam (month/year):}
+{\small (For PhD students only)}
+
+\noindent\TextField[maxlen=600,name=extra,width=\textwidth,height=5cm,align=0,multiline=true]{If you have any further questions, concerns, comments or suggestions, please use the space provided below.\\}
 \end{Form}
-
-\begin{center}
-{\large Twelve Month Plan}
-\end{center}
-\noindent 
-\begin{center}
-{\bf Summer 2011:}
-\end{center}
-  \noindent
-  \TextField[maxlen=600,name=sumconf,width=\textwidth,height=2cm,align=0,multiline=true]{Summer 2011 conferences etc: (Please specify)\\}\\
-
-  \noindent
-  \TextField[maxlen=600,name=sumvac,width=\textwidth,height=0.5cm,align=0,multiline=true]{Summer 2011 vacation dates (you are allowed one week per term):\\}\\
-
-\noindent 
-\ChoiceMenu[combo]{I have a concern about my graduate program that I would 
-like to discuss in confidence with the Associate Chair, Graduate.  \\Please 
-schedule an appointment for me.}{Yes,No}\\
-
-
-\noindent 
-\begin{center}
-  {\bf Fall/Winter 2011/2012:} 
-\end{center}
-
-  \noindent
-  \ChoiceMenu[combo]{I will be a full-time graduate student in Fall/Winter 
-    2011/2012.}{Yes,No}\\
-  
-  \noindent
-  \TextField[maxlen=600,name=other,width=\textwidth,height=0.5cm,align=0]{Other: (Please specify)\\}\\
-  
-  \noindent 
-  \ChoiceMenu[combo]{I wish to apply for a Teaching Assistantship for next year.}
-             {Yes,No}\\
-
-\noindent
-\TextField[maxlen=600,name=candidacy,width=\textwidth,height=0.5cm,align=0]{{\bf For PhD Students only:} Date of your Candidacy Exam (month/year):\\}\\
-
-\noindent 
-\ChoiceMenu[combo]{I have taken the required 8 hours in Graduate Ethics 
-  Training}{Yes,No}\\
-If you have completed the WEB CT component (equivalent to 5 hours), please be sure to print the summary and submit it to Tara Schuetz.\\
-  \noindent
-  \TextField[maxlen=600,name=seminars,width=\textwidth,height=0.5cm,align=0]{Please state which ethics seminars/dates you have attended:\\}\\
-
-\noindent
-\TextField[maxlen=600,name=extra,width=\textwidth,height=5cm,align=0,multiline=true]{If you have any further questions, concerns, comments or suggestions, please use the space provided below.\\}\\
 
 \noindent
 Thank you,\\
 Dr.\ Thomas Hillen\\
 Associate Chair, Graduate
-
-
 \end{document}
-
