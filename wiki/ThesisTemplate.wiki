@@ -3,9 +3,10 @@
 = Introduction =
 
 This template is designed to match the requirements for theses submitted
-at the University of Alberta.  
+at the University of Alberta.  It's worked for at least one thesis submission; if you have updates with new FGSR regulations, please send a patch!
 
-Please note that this has not yet been tested!  Once the next round of thesis submission is finished at the end of September 2011, we'll update the template to more closely reflect the requirements set by FGSR.  We're also hoping to work with FGSR so that we can add changes to the template when FGSR changes their regulations; currently, we are updating the template when someone submits and tells us that they had some problem.
+The template was designed with TeXLive, and may need some modification to work with MiKTeX.
+
 
 
 = Details =
