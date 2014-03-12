@@ -1,0 +1,17 @@
+Scientific poster template for Asymptote.
+
+For a landscape poster, compile with 
+
+asy -f pdf poster.asy
+
+The file posterportrait.asy gives a portrait orientation.  Both are
+set up for A0 paper sizes.
+
+
+The content of the boxes is defined in the tex0[] array, with samples
+given.  Colours of the boxes are given by boxpen and roundpen, which
+can be changed.  A background image can be added by uncommenting the
+appropriate two lines in the .asy files.  If the background image format is
+not eps, one must pass pdflatex as the tex compiler to asymptote:
+
+asy -f pdf -tex pdflatex poster.asy
