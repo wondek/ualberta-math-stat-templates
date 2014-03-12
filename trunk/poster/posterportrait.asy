@@ -109,20 +109,19 @@ One could put quite a lot of stuff in this box, couldn't one.
 //////  Setup  //////
 
 // Paper size information: A0 paper size
-real A0h=841mm,A0w=1189mm;
+real A0h=1189mm,A0w=841mm;
 size(A0w,A0h);
 
 // Uncomment the following two lines in order to include a background image
 //label(graphic("background","height="+(string)(A0h)+"pt"), (0,0));
 //layer();
 
-
 defaultpen(deepblue+fontsize(24));
 
 real boxopac=0.8; // opacity for background image
 
 // title settings
-real titlew=900mm, titleh=90mm;
+real titlew=600mm, titleh=90mm;
 real tspace=20mm, toffset=-5mm;
 real tspace2=20mm;
 pen titlebpen=invisible;//paleblue+opacity(boxopac);
@@ -134,7 +133,7 @@ real tmarg=15mm;
 int ncols=3;
 real marg=10mm, boxspace=5mm, boxmarg=marg+boxspace;
 real colw= (A0w-(ncols-1)*(2*boxmarg) - 4*(ncols-1)*marg)/ncols;
-real colh=650mm;
+real colh=900mm; // height of poster columns
 pen colpen=black+fontsize(36);
 pen boxpen=rgb("FFDB05")+opacity(boxopac); // yellow
 pen boxborder=invisible;
@@ -166,7 +165,7 @@ void setpic(picture pic, real w, real h) {
 void drawbox(string tex, picture pic, real w, real h){
   setpic(pic,w,h);
   label(pic,minipage(tex,w),(0,0),colpen);
-  //clip(pic,picbox);
+  clip(pic,picbox);
   fill(pic,roundbox,boxpen);
   draw(pic,roundbox,roundpen);
   draw(pic,picbox,boxborder);
@@ -254,7 +253,7 @@ fitvert(pic1,pic0);
 real topfrac=0.5, bottomfrac=1-topfrac;
 picture picwide;
 drawbox(tex21,picwide,2*colw+2*boxmarg+boxspace,
-        colh*topfrac-boxmarg-boxspace);
+        colh*topfrac-0.5*boxmarg-0.5*boxspace);
 picture picbl;
 drawbox(texbl,picbl,colw,colh*bottomfrac-boxspace);
 picture picbr;
