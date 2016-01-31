@@ -1,0 +1,1 @@
+These are some simple templates for that were developed in the department of mathematical and statistical sciences at the University of Alberta; instead of these being passed around informally, we thought it best to make them accessible to a more general audience.
